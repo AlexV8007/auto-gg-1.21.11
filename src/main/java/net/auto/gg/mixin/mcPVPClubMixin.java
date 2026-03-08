@@ -1,5 +1,6 @@
 package net.auto.gg.mixin;
 
+import net.auto.gg.ServerDetector;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.s2c.play.TitleS2CPacket;
 import net.minecraft.text.Text;
@@ -17,6 +18,8 @@ public class mcPVPClubMixin {
 
 	@Inject(method = "onTitle", at = @At("HEAD"))
 	private void onTitle(TitleS2CPacket packet, CallbackInfo ci) {
+
+		if (!ServerDetector.isMcPVP()) return;
 
 		Text title = packet.text();
 
