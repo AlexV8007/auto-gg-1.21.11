@@ -1,0 +1,14 @@
+{
+	"required": true,
+	"package": "net.auto.gg.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"mcPVPClubMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
