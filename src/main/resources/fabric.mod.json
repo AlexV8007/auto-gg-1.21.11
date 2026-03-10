@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"net.auto.gg.AutoggDataGenerator"
+		],
+		"modmenu": [
+			"net.auto.gg.ModMenuIntegration"
 		]
 	},
 	"mixins": [

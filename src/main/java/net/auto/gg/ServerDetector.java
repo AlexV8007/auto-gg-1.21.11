@@ -32,4 +32,10 @@ public class ServerDetector {
 
         return MCPVPCLUB_ADDRESS.stream().anyMatch(server::contains);
     }
+
+
+
+    public static boolean isSupportedServer() {
+        return isMcPVP();
+    }
 }

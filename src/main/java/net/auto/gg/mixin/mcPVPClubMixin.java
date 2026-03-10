@@ -1,5 +1,6 @@
 package net.auto.gg.mixin;
 
+import net.auto.gg.ModConfig;
 import net.auto.gg.ServerDetector;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.s2c.play.TitleS2CPacket;
@@ -19,7 +20,9 @@ public class mcPVPClubMixin {
 	@Inject(method = "onTitle", at = @At("HEAD"))
 	private void onTitle(TitleS2CPacket packet, CallbackInfo ci) {
 
-		if (!ServerDetector.isMcPVP()) return;
+		if (!ModConfig.INSTANCE.active) return;
+
+		// if (!ServerDetector.isMcPVP()) return;
 
 		Text title = packet.text();
 
@@ -37,12 +40,12 @@ public class mcPVPClubMixin {
 				|| currentTitle.contains("VICTORY")) {
 
 			assert MinecraftClient.getInstance().player != null;
-			MinecraftClient.getInstance().player.networkHandler.sendChatMessage("gg");
+			MinecraftClient.getInstance().player.networkHandler.sendChatMessage(ModConfig.INSTANCE.atEnd);
 
-		} else if (currentTitle.contains("FIGHT")) {
+		} else if (currentTitle.contains("FIGHT") && ModConfig.INSTANCE.sendAtStart) {
 
 			assert MinecraftClient.getInstance().player != null;
-			MinecraftClient.getInstance().player.networkHandler.sendChatMessage("glhf");
+			MinecraftClient.getInstance().player.networkHandler.sendChatMessage(ModConfig.INSTANCE.atStart);
 
 			}
 
