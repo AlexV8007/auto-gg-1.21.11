@@ -50,6 +50,18 @@ public class ModConfigGui {
         );
 
         settings.addEntry(
+                entryBuilder.startFloatField(
+                        Text.literal("Delay"),
+                        ModConfig.INSTANCE.delayAtEnd
+                )
+                        .setDefaultValue(0.5F)
+                        .setTooltip(Text.literal("Add a delay before the message at the end of the game will be sent."))
+                        .setSaveConsumer(newValue -> ModConfig.INSTANCE.delayAtEnd = newValue)
+                        .build()
+
+        );
+
+        settings.addEntry(
                 entryBuilder.startTextDescription(
                                 Text.literal(" ")
                         )
@@ -74,6 +86,18 @@ public class ModConfigGui {
                         )
                         .setDefaultValue("glhf")
                         .setSaveConsumer(newValue -> ModConfig.INSTANCE.atStart = newValue)
+                        .build()
+
+        );
+
+        settings.addEntry(
+                entryBuilder.startFloatField(
+                                Text.literal("Delay"),
+                                ModConfig.INSTANCE.delayAtStart
+                        )
+                        .setDefaultValue(0.5F)
+                        .setTooltip(Text.literal("Add a delay before the message at the start of the game will be sent."))
+                        .setSaveConsumer(newValue -> ModConfig.INSTANCE.delayAtStart = newValue)
                         .build()
 
         );
