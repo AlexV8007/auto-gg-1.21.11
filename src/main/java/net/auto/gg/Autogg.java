@@ -11,5 +11,6 @@ public class Autogg implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModConfig.load();
 	}
 }

@@ -12,7 +12,8 @@ public class ModConfigGui {
 
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
-                .setTitle(Text.literal("Auto-gg"));
+                .setTitle(Text.literal("Auto-gg"))
+                .setSavingRunnable(ModConfig::write);
 
         ConfigCategory settings = builder.getOrCreateCategory(Text.literal("Settings"));
 

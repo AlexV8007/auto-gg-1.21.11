@@ -1,6 +1,18 @@
 package net.auto.gg;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import net.fabricmc.loader.api.FabricLoader;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class ModConfig {
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Path FILE = FabricLoader.getInstance().getConfigDir().resolve("auto-gg.json");
+
+    public static ModConfig INSTANCE = new ModConfig();
 
     public boolean active = true;
     public String atEnd = "gg";
@@ -9,7 +21,23 @@ public class ModConfig {
     public String atStart = "glhf";
     public float delayAtStart = 0.5F;
 
-    public static ModConfig INSTANCE = new ModConfig();
+    public static void load() {
+        if (Files.exists(FILE)) {
+            try {
+                INSTANCE = GSON.fromJson(Files.readString(FILE), ModConfig.class);
+            } catch (Exception e) {
+                INSTANCE = new ModConfig();
+            }
+        }
+        write();
+    }
 
+    public static void write() {
+        try {
+            Files.writeString(FILE, GSON.toJson(INSTANCE));
+        } catch (IOException e) {
+            throw new RuntimeException("Could not write " + FILE, e);
+        }
+    }
 
 }
