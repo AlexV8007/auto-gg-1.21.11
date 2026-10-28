@@ -3,7 +3,7 @@
 	"package": "net.auto.gg.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"mcPVPClubMixin"
+		"sendOnTitleMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

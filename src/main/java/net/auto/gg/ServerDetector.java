@@ -1,23 +1,25 @@
 package net.auto.gg;
 
+import net.auto.gg.server.McPvp;
+import net.auto.gg.server.ServerHandler;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 import java.util.List;
 
 public class ServerDetector {
 
-    public static boolean isMcPVP() {
-        MinecraftClient client = MinecraftClient.getInstance();
-        ServerInfo entry = client.getCurrentServerEntry();
-        if (entry == null) return false;
+    private static final List<ServerHandler> HANDLERS = List.of(
+            new McPvp()
+    );
 
-        String IpAddress = entry.address.toLowerCase().split(":")[0];
+    public static ServerHandler current() {
+        ServerInfo entry = MinecraftClient.getInstance().getCurrentServerEntry();
+        if (entry == null) return null;
 
-        //noinspection ConditionCoveredByFurtherCondition
-        return IpAddress.equals("mcpvp.club") || IpAddress.endsWith("mcpvp.club");
-    }
-
-    public static boolean isSupportedServer() {
-        return isMcPVP();
+        String ip = entry.address.toLowerCase().split(":")[0];
+        for (ServerHandler h : HANDLERS) {
+            if (ip.matches(ip)) return h;
+        }
+        return null;
     }
 }
