@@ -21,7 +21,7 @@ public class sendOnTitleMixin {
 
 
 	@Inject(method = "onTitle", at = @At("HEAD"))
-	private void onTitle(TitleS2CPacket packet, CallbackInfo ci) throws InterruptedException {
+	private void autogg$onTitle(TitleS2CPacket packet, CallbackInfo ci) {
 
 		if (!ModConfig.INSTANCE.active) return;
 

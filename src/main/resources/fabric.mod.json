@@ -3,7 +3,7 @@
 	"id": "auto-gg",
 	"version": "${version}",
 	"name": "auto-gg",
-	"description": "This mod send automatically \"glhf\", at the start of the game and an \"gg\" (messages can be modified) at the end of the game.",
+	"description": "This mod sends automatically \"glhf\", at the start of the game and a \"gg\" (messages can be modified) at the end of the game.",
 	"authors": [
 		"AlexV8"
 	],
