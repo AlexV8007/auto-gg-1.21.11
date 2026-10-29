@@ -2,7 +2,7 @@
 	"required": true,
 	"package": "net.auto.gg.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": [
+	"client": [
 		"sendOnTitleMixin"
 	],
 	"injectors": {

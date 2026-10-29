@@ -24,7 +24,8 @@ public class ModConfig {
     public static void load() {
         if (Files.exists(FILE)) {
             try {
-                INSTANCE = GSON.fromJson(Files.readString(FILE), ModConfig.class);
+                ModConfig loaded = GSON.fromJson(Files.readString(FILE), ModConfig.class);
+                INSTANCE = (loaded != null) ? loaded : new ModConfig();
             } catch (Exception e) {
                 INSTANCE = new ModConfig();
             }
@@ -36,7 +37,7 @@ public class ModConfig {
         try {
             Files.writeString(FILE, GSON.toJson(INSTANCE));
         } catch (IOException e) {
-            throw new RuntimeException("Could not write " + FILE, e);
+            Autogg.LOGGER.error("Could not write {}", FILE, e);
         }
     }
 

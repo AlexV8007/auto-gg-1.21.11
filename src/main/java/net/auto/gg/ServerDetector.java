@@ -18,7 +18,7 @@ public class ServerDetector {
 
         String ip = entry.address.toLowerCase().split(":")[0];
         for (ServerHandler h : HANDLERS) {
-            if (ip.matches(ip)) return h;
+            if (h.matchesIp(ip)) return h;
         }
         return null;
     }

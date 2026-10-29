@@ -3,23 +3,19 @@
 	"id": "auto-gg",
 	"version": "${version}",
 	"name": "auto-gg",
-	"description": "This mod send automaticly \",glhf\", at the start of the game and an \"gg\" (messages can be modified) at the end of the game.",
+	"description": "This mod send automatically \"glhf\", at the start of the game and an \"gg\" (messages can be modified) at the end of the game.",
 	"authors": [
 		"AlexV8"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/AlexV8007/auto-gg-1.21.11"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/auto-gg/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"net.auto.gg.Autogg"
-		],
-		"fabric-datagen": [
-			"net.auto.gg.AutoggDataGenerator"
 		],
 		"modmenu": [
 			"net.auto.gg.ModMenuIntegration"
@@ -33,5 +29,9 @@
 		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*",
+		"cloth-config": "*"
 	}
 }

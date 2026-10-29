@@ -3,7 +3,7 @@ package net.auto.gg.server;
 public class McPvp implements ServerHandler {
     @Override
     public boolean matchesIp(String ip) {
-        return ip.equals("mcpvp.club");
+        return ip.contains("mcpvp.club");
     }
 
     @Override

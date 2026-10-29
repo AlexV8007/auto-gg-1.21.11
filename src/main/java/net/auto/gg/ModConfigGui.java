@@ -56,6 +56,7 @@ public class ModConfigGui {
                         ModConfig.INSTANCE.delayAtEnd
                 )
                         .setDefaultValue(0.5F)
+                        .setMin(0f)
                         .setTooltip(Text.literal("Add a delay before the message at the end of the game will be sent."))
                         .setSaveConsumer(newValue -> ModConfig.INSTANCE.delayAtEnd = newValue)
                         .build()
@@ -97,6 +98,7 @@ public class ModConfigGui {
                                 ModConfig.INSTANCE.delayAtStart
                         )
                         .setDefaultValue(0.5F)
+                        .setMin(0f)
                         .setTooltip(Text.literal("Add a delay before the message at the start of the game will be sent."))
                         .setSaveConsumer(newValue -> ModConfig.INSTANCE.delayAtStart = newValue)
                         .build()
